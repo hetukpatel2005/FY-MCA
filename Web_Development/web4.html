@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    
+</head>
+<body>
+    <input type="text" id="para">
+    <p id="myparagraph"></p>
+    <button onclick="addpara()">add</button>
+
+    <script>
+        const myparagraph=document.getElementById("myparagraph");
+        myparagraph.addEventListener("paraAdded",(e)=>{console.log("paragraph added",e.details.text)});
+
+        function addpara(){
+            const parag = myparagraph.appendChild(document.createElement("parag"));
+            parag.textContent = document.getElementById("para").value;
+        }
+
+    </script>
+    <div></div>
+</body>
+</html>

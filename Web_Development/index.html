@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <style>
+        h1,h3 {
+            text-align: center;
+        }
+        .items {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            justify-items: center;
+            align-items: center;
+        }
+        .item_1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 21px;
+        }
+        #receipt {
+            width: 500px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+        #receipt h2 {
+            text-align: center;
+        }
+        .receiptItem {
+            display: flex;
+            justify-content: space-between;
+        }
+        #submit {
+            display: block;
+            margin: 30px auto;
+            padding: 10px 25px;
+            border: 2px solid;
+            cursor: pointer;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            border-radius: 11px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Menu</h1>
+    <hr>
+    Name: <input type="text" class="name">
+    <br><br>
+    Email: <input type="text" class="name">
+    <br><br>
+    Phone: <input type="text" class="name">
+    <hr>
+    <div class="items">
+        <div class="juice">
+            <h3>Juice</h3>
+            <div class="item_1">
+                <h4>Orange Juice</h4>
+                <p>20</p>
+                <select>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+        </div>
+        <div class="starter">
+            <h3>Starter</h3>
+            <div class="item_1">
+                <h4>Paneer Chilly</h4>
+                <p>200</p>
+                <select>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+        </div>
+        <div class="roti">
+            <h3>Roti</h3>
+            <div class="item_1">
+                <h4>Nan</h4>
+                <p>120</p>
+                <select>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+        </div>
+        <div class="vegetable">
+            <h3>Vegetable</h3>
+            <div class="item_1">
+                <h4>Kolhapuri</h4>
+                <p>300</p>
+                <select>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+        </div>
+        <div class="rice">
+            <h3>Rice</h3>
+            <div class="item_1">
+                <h4>Jeera Rice</h4>
+                <p>200</p>
+                <select>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+        </div>
+        <div class="dal">
+            <h3>Dal</h3>
+            <div class="item_1">
+                <h4>Dal Fry</h4>
+                <p>200</p>
+                <select>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <button id="submit">Submit Order</button>
+    <div id="receipt"></div>
+</body>
+<script>
+        var customerDetails = document.getElementsByClassName("name");
+        var menuItems = document.getElementsByClassName("item_1");
+        var submitButton = document.getElementById("submit");
+        var receipt = document.getElementById("receipt");
+        submitButton.addEventListener("click", function () {
+            var name = customerDetails[0].value;
+            var email = customerDetails[1].value;
+            var phone = customerDetails[2].value;
+            receipt.innerHTML = "";
+            var heading = document.createElement("h2");
+            heading.innerText = "RESTAURANT RECEIPT";
+            receipt.appendChild(heading);
+            var customerName = document.createElement("p");
+            customerName.innerText = "Name: " + name;
+            receipt.appendChild(customerName);
+            var customerEmail = document.createElement("p");
+            customerEmail.innerText = "Email: " + email;
+            receipt.appendChild(customerEmail);
+            var customerPhone = document.createElement("p");
+            customerPhone.innerText = "Phone: " + phone;
+            receipt.appendChild(customerPhone);
+            var line = document.createElement("hr");
+            receipt.appendChild(line);
+            var table = document.createElement("table");
+            table.setAttribute("border", "1");
+            table.setAttribute("width", "100%");
+            var headingRow = document.createElement("tr");
+            var itemHeading = document.createElement("th");
+            itemHeading.innerText = "Item";
+            var priceHeading = document.createElement("th");
+            priceHeading.innerText = "Price";
+            var quantityHeading = document.createElement("th");
+            quantityHeading.innerText = "Quantity";
+            var totalHeading = document.createElement("th");
+            totalHeading.innerText = "Total";
+            headingRow.appendChild(itemHeading);
+            headingRow.appendChild(priceHeading);
+            headingRow.appendChild(quantityHeading);
+            headingRow.appendChild(totalHeading);
+            table.appendChild(headingRow);
+            var finalAmount = 0;
+            for (var i = 0; i < menuItems.length; i++) {
+                var itemName = menuItems[i]
+                    .getElementsByTagName("h4")[0]
+                    .innerText;
+                var price = parseInt(
+                    menuItems[i]
+                    .getElementsByTagName("p")[0]
+                    .innerText
+                );
+                var quantity = parseInt(
+                    menuItems[i]
+                    .getElementsByTagName("select")[0]
+                    .value
+                );
+                if (quantity > 0) {
+                    var itemTotal = price * quantity;
+                    finalAmount = finalAmount + itemTotal;
+                    var row = document.createElement("tr");
+                    var nameCell = document.createElement("td");
+                    nameCell.innerText = itemName;
+                    var priceCell = document.createElement("td");
+                    priceCell.innerText = "Rs. " + price;
+                    var quantityCell = document.createElement("td");
+                    quantityCell.innerText = quantity;
+                    var totalCell = document.createElement("td");
+                    totalCell.innerText = "Rs. " + itemTotal;
+                    row.appendChild(nameCell);
+                    row.appendChild(priceCell);
+                    row.appendChild(quantityCell);
+                    row.appendChild(totalCell);
+               table.appendChild(row);
+                }
+            }
+            receipt.appendChild(table);
+            var finalLine = document.createElement("hr");
+            receipt.appendChild(finalLine);
+            var finalBill = document.createElement("h3");
+            finalBill.innerText =
+                "Final Bill Amount: Rs. " + finalAmount;
+            receipt.appendChild(finalBill);
+        });
+    </script>
+</html>

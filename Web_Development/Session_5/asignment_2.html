@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        let rec = 0;
+        function createRows(){
+            const tableInfo = document.getElementById('table');    
+            var name = document.getElementById('name').value;
+            var course = document.getElementById('course').value;
+            var email = document.getElementById('email').value;
+            var subject = document.getElementById('subject').value;
+            const newRecord = document.createElement('tr');
+            newRecord.setAttribute('id','rec' + rec);
+            rec += 1;
+            // CORRECTED: Create brand new <td> elements for this row
+            const td1 = document.createElement('td'); 
+            const td2 = document.createElement('td');
+            const td3 = document.createElement('td');
+            const td4 = document.createElement('td');
+            td1.innerText = name;
+            td2.innerText = course;
+            td3.innerText = email;
+            td4.innerText = subject;
+            newRecord.appendChild(td1);
+            newRecord.appendChild(td2);
+            newRecord.appendChild(td3);
+            newRecord.appendChild(td4);
+            tableInfo.appendChild(newRecord);;
+        }
+    </script>
+    <style>
+        table,tr,td,th{
+            border: 1px solid;
+            border-collapse: collapse;
+            text-align: center;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Creating table dynamically</h1>
+    Name: <input id="name">
+    Course: <input id="course"> <br><br>
+    Email: <input id="email">
+    Subject: <input id="subject"> <br><br>
+    <table style="border-style: solid;" id="table">
+        <tr id="heading">
+            <th>Name</th>
+            <th>Course</th>
+            <th>Email</th>
+            <th>Subject</th>
+        </tr>
+    </table>
+    <br><br>
+    <button onclick="createRows()">Create Row</button>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        let idd =0;
+        function createListItem(){
+            const mySubs=document.getElementById("mySubs");
+            const newList=document.createElement("li");
+            newList.setAttribute("id","item-"+idd);
+            idd+=1;
+            const uinput =document.getElementById("uinput").value;
+            alert(uinput);
+            newList.innerText= uinput;
+            mySubs.appendChild(newList);
+        }
+
+        function replaceFirstListItem(){
+            const mySubs=document.getElementById("mySubs");
+            const itemid =document.getElementById("uinput").value;
+            const replaceValue= document.getElementById("rinput").value;
+            const repLi=document.getElementById(itemid);
+            repLi.innerText = replaceValue;
+            
+        }
+
+        function removeListItem(){
+            const toBRemoved=document.getElementById("uinput").value;
+            alert(toBRemoved);
+            const removeLi = document.getElementById(toBRemoved);
+            mySubs.removeChild(removeLi);
+        }
+    </script>
+</head>
+<body>
+    input or itemid<input id="uinput" type="text">
+    replace:<input id="rinput" type="text">
+    <h1>my subject list </h1>
+    <ol id="mySubs">
+
+    </ol>
+
+  <button onclick="createListItem()">create new ListItem</button>
+  <button onclick="replaceFirstListItem()">replace new ListItem</button>
+  <button onclick="removeListItem()">Remove new ListItem</button>
+    
+</body>
+</html>

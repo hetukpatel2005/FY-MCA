@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>STUDENT TABLE</head><br>
+<script>
+    let rec =0;
+    function createtable(){
+    const mcafy=document.getElementById("mcafy");
+
+    const rollno =document.getElementById("rollno").value;
+    const name =document.getElementById("name").value;
+    const email =document.getElementById("email").value;
+
+    const Tab = document.createElement("tr");
+    Tab.setAttribute("id","rec-"+rec);
+
+    rec +=1;
+
+    const td1 = document.createElement("td");
+    td1.innerText = rollno;
+    const td2 = document.createElement("td");
+    td2.innerText = name;
+    const td3 = document.createElement("td");
+    td3.innerText = email;
+    
+    Tab.appendChild(td1);
+    Tab.appendChild(td2);
+    Tab.appendChild(td3);
+
+    mcafy.appendChild(Tab);
+    }
+    
+    function removedata(){
+        const mcafy = document.getElementById("mcafy");
+        const tar = document.getElementById("rem").value.trim();
+        const rowToRemove = document.getElementById(tar);
+        mcafy.removeChild(rowToRemove);
+    }
+
+</script>
+
+<body>
+    rollno:<input type="text" id="rollno">
+    name:<input type="text" id="name">
+    email:<input type="text" id="email">
+    rem:<input type="text" id="rem">
+    
+    <table id="mcafy">
+        <tr><th>rollno</th><th>name</th><th>email</th></tr>
+    </table>
+    
+    <button onclick="createtable()">insert data</button>
+    <button onclick="removedata()">remove data</button>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+let idd = 0;
+function insertData() {
+    const myTable = document.getElementById("studentTable");
+    const newRow = document.createElement("tr");
+
+    newRow.setAttribute("id", "row-" + idd);
+    idd += 1;
+
+    const rollNo = document.getElementById("rollNo").value;
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+
+    const rollCell = document.createElement("td");
+    const nameCell = document.createElement("td");
+    const emailCell = document.createElement("td");
+
+    rollCell.innerText = rollNo;
+    nameCell.innerText = name;
+    emailCell.innerText = email;
+
+    newRow.appendChild(rollCell);
+    newRow.appendChild(nameCell);
+    newRow.appendChild(emailCell);
+
+    myTable.appendChild(newRow);
+}
+function replaceData() {
+    const rowId = document.getElementById("rowId").value;
+    const newName = document.getElementById("name").value;
+    const newEmail = document.getElementById("email").value;
+
+    const row = document.getElementById(rowId);
+
+    row.children[1].innerText = newName;
+    row.children[2].innerText = newEmail;
+}
+function removeData() {
+    const rowId = document.getElementById("rowId").value;
+    const row = document.getElementById(rowId);
+    row.remove();
+}
+</script>
+</head>
+<body>
+<h1>Student Table</h1>
+Roll No:
+<input id="rollNo" type="text">
+<br><br>
+Name:
+<input id="name" type="text">
+<br><br>
+Email:
+<input id="email" type="text">
+<br><br>
+Row ID:
+<input id="rowId" type="text">
+<br><br>
+<button onclick="insertData()">Insert Data</button>
+<button onclick="replaceData()">Replace Data</button>
+<button onclick="removeData()">Remove Data</button>
+<br><br>
+<table border="1">
+<tr><th>Roll No</th><th>Name</th><th>Email</th></tr>
+<tbody id="studentTable">
+</tbody>
+</table>
+</body>
+</html>

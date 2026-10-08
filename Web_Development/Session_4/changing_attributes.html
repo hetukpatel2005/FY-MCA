@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        function bulbOn(){
+            const bulbImage=document.getElementById("bulb")
+            bulbImage.setAttribute("src","./Utils/Bulb_On.avif");
+            console.log("Bulb On");
+        }
+        function bulbOff(){
+            const bulbImage=document.getElementById("bulb")
+            bulbImage.setAttribute("src","./Utils/Bulb.jpg");
+            console.log("Bulb Off");
+        }
+    </script>
+</head>
+<body>
+    <img src="./Utils/Bulb.jpg" style="width: 200px;" height="200px" id="bulb"/>
+    <br>
+    <button onclick="bulbOff()">Bulb Off</button>
+    <button onclick="bulbOn()">Bulb On</button>
+</body>
+</html>

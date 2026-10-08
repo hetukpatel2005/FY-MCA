@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Checker</title>
+</head>
+<body>
+    Event: <input type="text" placeholder="Event" id="eventInput">
+    Element: <input type="text" placeholder="Element" id="elementInput">
+    <br><br>
+    <button id="btn">Start Event</button>
+    <br><br>
+    <div id="result"></div>
+    <script>
+        const eventInput = document.getElementById("eventInput");
+        const elementInput = document.getElementById("elementInput");
+        const button = document.getElementById("btn");
+        const result = document.getElementById("result");
+        button.addEventListener("click", function () {
+            const eventName = eventInput.value.toLowerCase().trim();
+            const elementName = elementInput.value.toLowerCase().trim();
+            if (!eventName || !elementName) {
+                result.textContent = "Please enter both Event and Element.";
+                return;
+            }
+            // Create the element
+            const newElement = document.createElement(elementName);
+            // Give the element some text
+            newElement.textContent = `Test ${elementName}`;
+            // Add event to the newly created element
+            newElement.addEventListener(eventName, function () {
+                result.textContent =
+                    `Event performed: ${eventName} on <${elementName}>`;
+            });
+            // Add the element to the page
+            document.body.appendChild(newElement);
+            result.textContent =
+                `Waiting for ${eventName} on <${elementName}>`;
+        });
+    </script>
+</body>
+</html>

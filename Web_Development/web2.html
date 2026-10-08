@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Event Handling</title>
+    
+</head>
+<body>
+    <button id ="login1">login1</button>
+    <button id="login" onclick="alert('this is inline event handlng')">login</button>
+
+    <script>
+        const btn = document.getElementById("login1");
+
+        btn.onclick =function(){
+            alert('handling event on dom objct');
+            console.log("handlig event on dom object");
+        }
+
+        function handleclick(){
+            alert("listener called user defined function")
+        }
+
+        btn.addEventListener("click",(e)=>{alert("handing event through addEventListener first time")});
+        btn.addEventListener("click",handleclick);
+        btn.addEventListener("click",(e)=>{alert("handing event through addEventListener third time")});
+        btn.removeEventListener("click",handleclick)
+    </script>
+</body>
+</html>

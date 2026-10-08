@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag Event</title>
+</head>
+<body>
+    <button id="dragMe" draggable="true" style="border-radius: 50%; border: 1px solid; background-color: red; height: 25px;
+    width: 25px;"></button>
+    <div style="height: 200px; width: 200px; background-color: aqua;" ondragover="event.preventDefault()"
+        ondrop="event.preventDefault(); this.appendChild(document.getElementById('dragMe'))">
+    </div><br><br>
+    <div ondragover="event.preventDefault()"
+        ondrop="event.preventDefault(); this.appendChild(document.getElementById('dragMe'))"
+        style="height: 200px; width: 200px; background-color: antiquewhite;">
+    </div><br><br>
+    <div ondragover="event.preventDefault()"
+        ondrop="event.preventDefault(); this.appendChild(document.getElementById('dragMe'))"
+        style="height: 200px; width: 200px; background-color: aquamarine;">
+    </div><br><br>
+</body>
+</html>

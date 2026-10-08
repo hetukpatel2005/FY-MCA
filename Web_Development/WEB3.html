@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+</head>
+<body>
+    <input type="text" id="input"><br>
+
+    <ul id="myList"></ul>
+    <button onclick="addItem()">addItem</button>
+    <script>
+        const myList = document.getElementById("myList");
+
+        myList.addEventListener("itemAdded",(e)=>{console.console.log("li item added",e.detail.text)});
+
+        function addItem(){
+            const li = myList.appendChild(document.createElement("li"));
+            li.textContent = document.getElementById("input").value;
+
+            myList.dispatchEvent(new CustomEvent("itemAdded",{detail: {text :li.textContent}}));
+        }
+        
+    </script>
+</body>
+</html>
+

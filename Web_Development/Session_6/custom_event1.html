@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+    <div id="div"></div><br>
+    <p id="myPara"></p>
+    <button onclick="additem()">Add Item</button>
+    <script>
+        const myPara = document.getElementById("myPara");
+        myPara.addEventListener("itemAdded",(e)=>console.log("p item added",e.hello.para));
+        function additem(){
+            const p = myPara.appendChild(document.createElement("p"));
+            p.textContent = document.getElementById("div").value;
+            p.dispatchEvent(new CustomEvent("itemAdded",{hello: {para :p.textContent}}));
+        }
+    </script>
+</body>
+</html>

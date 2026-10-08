@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        let idd = 0;    
+        function createListItem(){
+            const mySubs=document.getElementById("mySubs");
+            const newList=document.createElement("li"); 
+
+            newList.setAttribute("id","item-"+idd);
+            idd+=1;
+
+            var uinput = document.getElementById("input").value;
+
+            newList.innerText = uinput;
+
+            mySubs.appendChild(newList);
+        }
+        function replaceFirstListItem(){
+            const mySubs=document.getElementById("mySubs");
+            const repLi=document.querySelector("li");
+            const item_id = document.getElementById("replaceId").value;
+            const replaceValue = document.getElementById("textReplace").value;
+            const newList=document.getElementById(item_id);
+            
+            newList.innerText=replaceValue;
+            // mySubs.replaceChild(repLi,newList);   
+        }
+        function removeListItem(){
+            const mySubs=document.getElementById("mySubs");
+            const removeElement = document.getElementById("removeId").value;
+            const removedElement = document.getElementById(removeElement);
+            mySubs.removeChild(removedElement);
+        }
+    </script>
+</head>
+<body>
+    <h1>My Subject List</h1>
+    Input: <input type="text" id="input"><br><br>
+    Item-Id: <input type="text" id="replaceId"><br><br>
+    Replace: <input type="text" id="textReplace"><br><br>
+    Remove Item-Id: <input type="text" id="removeId"><br><br>
+    <ol id="mySubs"></ol>
+    <br>
+    <button onclick="createListItem()">Create New List Items</button>
+    <button onclick="replaceFirstListItem()">Replace Element</button>
+    <button onclick="removeListItem()">Remove Element</button>
+</body>
+</html>
