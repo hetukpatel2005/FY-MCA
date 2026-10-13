@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Drag and Drop Example</title>
+</head>
+<body>
+    <button id="dragme" draggable="true">Drag Me</button>
+    
+  
+    <div style="margin:auto; height: 500px; width: 500px; background-color: blanchedalmond;"
+         ondragover="event.preventDefault()"
+         ondrop="event.preventDefault(); event.stopPropagation(); this.appendChild(document.getElementById('dragme'))">
+         
+         
+         <div style="margin:auto; height: 300px; width: 300px; background-color: cornsilk;"
+              ondragover="event.preventDefault()"
+              ondrop="event.preventDefault(); event.stopPropagation(); this.appendChild(document.getElementById('dragme'))">
+
+            <div style="margin:auto; height: 150px; width: 150px; background-color: azure;"
+                 ondragover="event.preventDefault()"
+                 ondrop="event.preventDefault(); event.stopPropagation(); this.appendChild(document.getElementById('dragme'))">
+            </div>
+         </div>
+
+    </div>  
+</body>
+</html>
