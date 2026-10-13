@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        // Class And Object
+        class Student{
+            constructor(rollNo, name, email){
+                this.rollNo = rollNo;
+                this.name = name;
+                this.email = email;
+            }
+            showInfo = function(){
+                console.log("Roll No: "+this.rollNo);
+                console.log("Name: "+this.name);
+                console.log("Email: "+this.email + "\n");
+            }
+        }
+        class Child extends Student{
+            constructor(course){
+                this.course = course;
+            }
+            childInfo = function(){
+                console.log("Course: ",+this.course +"\n");
+            }
+        }
+        const s1 = new Student(1,"Hello","hello@soaiya.edu");
+        const s2 = new Student(2,"World","world@soaiya.edu");
+        const s3 = new Child(2,"World","world@soaiya.edu","MCA");
+        s1.showInfo();
+        s2.showInfo();
+        s3.showInfo();
+    </script>
+</head>
+<body>
+</body>
+</html>

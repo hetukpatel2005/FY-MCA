@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        class Student{
+            #rollNo;
+            #name;
+            #email;
+            set rollNo(roll){
+                this.#rollNo = roll;
+            }
+            set name(fullName){
+                this.#name = fullName;
+            }
+            set email(email){
+                this.#email = email;
+            }
+            get info(){
+                return "\n Roll No: "+this.#rollNo+"\n Name: "+this.#name+"\n Email: "+this.#email
+            }
+        }
+        const S1 = new Student();
+        S1.roll = 34;
+        S1.name = "Hello";
+        S1.email = "abc.somaiya.edu";
+        console.log(S1.info);
+    </script>
+</head>
+<body>
+</body>
+</html>

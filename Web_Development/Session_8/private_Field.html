@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        class Account{
+            #balance = 0;
+            constructor(balance){
+                this.#balance = balance;
+            }
+            deposite = function(amount){
+                this.#balance += amount;
+                console.log("Deposited: "+amount);
+                console.log("Current Balance: "+this.#balance);
+            }
+            withdraw = function(amount){
+                this.#balance -= amount;
+                console.log("Withdrawn: "+amount);
+                console.log("Current Balance: "+this.#balance);
+            }
+            showBalance = function(){
+                console.log("Current Balance: "+this.#balance);
+            }
+        }
+        const A1 = new Account(0);
+        A1.showBalance();
+        A1.deposite(2500);
+        A1.deposite(1000);
+        A1.withdraw(2000);
+    </script>
+</head>
+<body>
+</body>
+</html>

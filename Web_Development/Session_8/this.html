@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        //1. Global Context
+        var a = 1;
+        console.log(this.a); // browser script: 1 (var attaches to window)
+        let b = 2;
+        console.log(this.b); // undefined (let/const don't attach)
+        //2. Plain Function Call
+        function show() { console.log(this); }
+        show();
+        //3. Method Call
+        const user = {
+            name: "ABC",
+            greet() { console.log(this.name); }
+        };
+        user.greet(); // "ABC" (this = object before the dot)
+        //4. Losing "this"
+        const g = user.greet;
+        g();                      // undefined / error (default binding)
+        setTimeout(user.greet, 0); // same problem: callback is called plainly
+        [1].forEach(user.greet);   // same
+        //5. Constructor Call
+        function Person(name) {
+            this.name = name;   // this = brand new object
+        }
+        const p = new Person("Ravi");
+        //6. Explicit Binding
+        function intro(greeting, punct) {
+            console.log(greeting + ", " + this.name + punct);
+        }
+        const o = { name: "Meera" };
+        intro.call(o, "Hi", "!");      // args individually
+        intro.apply(o, ["Hi", "!"]);   // args as array
+        const bound = intro.bind(o, "Hi");
+        bound("?");                    // permanently bound
+        //7. Arrow Functions
+        const timer = {
+            seconds: 0,
+            start() {
+                setInterval(() => { this.seconds++; }, 1000); // this = timer
+            }
+        };
+        //8. Classes
+        class Counter {
+            count = 0;
+            inc() { this.count++; }
+            incArrow = () => { this.count++; }
+            static create() { return this; }
+        }
+        const c = new Counter();
+        const { inc } = c;
+        try {
+            inc();
+        } catch (e) {
+            console.log("inc() failed:", e.message);
+        }
+        c.inc();
+        console.log(c.count);        // 1
+        const { incArrow } = c;
+        incArrow();
+        console.log(c.count);        // 2
+        console.log(Counter.create() === Counter);  // true
+        class A { }
+        class B extends A {
+            constructor() {
+                // console.log(this);  // ReferenceError if uncommented
+                super();
+                this.x = 1;
+            }
+        }
+        console.log(new B().x);      // 1
+        // 9. DOM Event Handlers
+        window.onload = function () {
+            console.log(this === window);   // true
+        };
+        window.addEventListener("load", function () {
+            console.log(this === window);   // true
+            console.log(this === event.currentTarget); // true
+        });
+        // 10. CallBacks With "thisArg"
+        [1, 2].forEach(function (n) { console.log(this.k, n); }, { k: "ctx" });
+        //11. Other Special Cases
+        const abc = { n: 1, m() { function inner() { return this; } return inner(); } };
+        abc.m(); // global / undefined, not a
+    </script>
+</head>
+<body>
+</body>
+</html>
