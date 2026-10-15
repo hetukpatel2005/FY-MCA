@@ -2,5 +2,6 @@
     "html-css-class-completion.enableEmmetSupport": true,
     "editor.inlineSuggest.triggerCommandOnProviderChange": true,
     "terminal.integrated.suggest.suggestOnTriggerCharacters": true,
-    "editor.linkedEditing": true
+    "editor.linkedEditing": true,
+    "liveServer.settings.CustomBrowser": "chrome"
 }

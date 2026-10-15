@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        const e = {
+            name: "MCA FY",
+            wish: function(){
+                return "Welcome, " +this.name;
+            },
+            wish1 : function(msg,symbol){
+                return "Welcome, "+this.name+"Msg For You: "+msg+" "+symbol;
+            }
+        }
+        const e1 = {name:"Hello"}
+        const e2 = {name:"World"}
+        const e3 = {name:"!"}
+        const me = {name:"K J Somaiya Institute Of Management"}
+        const objArr = [{name:"Hello"},{name:"World"},{name:"!"},{name:"K J Somaiya Institute Of Management"}]
+        // Call And Apply Will Call Function Immidietly Without Making Its Copy
+        // call() For Borrowing The Method From Another Class
+        console.log(e.wish.call(e1));
+        // call() For Borrowing The Method From Another Class With Parameters (Comma Seperated)
+        console.log(e.wish.call(e2,"Good Morning"," !!!"));
+        // apply() With Parameters As Array
+        console.log(e.wish.call(e3,["Good Morning"," !!!"]));
+        // Apply Function For Typical Arrays
+        const numbers = [10,20,30];
+        console.log("Maximum Number Is: [10,20,30]"+Math.max.apply(null,numbers));
+        // bind() - Bind Now And Call Later
+        const wishMe = e.wish1.bind(me);
+        console.log(wishMe("Good Night","$$$"));
+    </script>
+</head>
+<body>
+</body>
+</html>

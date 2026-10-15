@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script>
+      class Employee {
+        #empid;
+        #email;
+        constructor(id, mail) {
+          // if(new.target===Employee) {
+          // throw new Error(
+          //   "cant initialize since Employee has abstract method.."
+          // );
+          // };
+          this.#empid = id;
+          this.#email = mail;
+          if (this.wish === Employee.prototype.wish) {
+            throw new Error("wish() is abstract and needs implementation");
+          }
+        }
+        getInfo() {
+          return (
+            "\n Employee-ID: " +
+            this.#empid +
+            "\n Employee-mail: " +
+            this.#email
+          );
+        }
+        // Abstract Method
+        wish() {
+          throw new Error("needs to be implemented");
+        }
+      }
+      class MCA extends Employee {
+        wish() {
+          console.log("welcome to KJSIM");
+        }
+      }
+      try {
+        const e1 = new Employee(101, "MCA FY"); // Error
+        console.log(el.getInfo());
+      } catch (e) {
+        console.log("caught exception thrown by Employee class" + e.message);
+      }
+      e1.wish(); // Throws Error
+      const m = new MCA();
+      m.wish(); // Work
+    </script>
+  </head>
+  <body></body>
+</html>
